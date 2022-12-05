@@ -1,0 +1,13 @@
+body {
+  margin: 20px 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.id-order {
+  display: block;
+  width: 70px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
