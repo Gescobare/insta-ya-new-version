@@ -31,6 +31,8 @@ class App extends Component {
           </div>
           <div class="panel-body">
             <h4><Link to="/create"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Crear nueva orden</Link></h4>
+            <h4><Link to="/signup"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Registrarse</Link></h4>
+            <h4><Link to="/login"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Ingresar</Link></h4>
             <table class="table table-stripe">
               <thead>
                 <tr>
