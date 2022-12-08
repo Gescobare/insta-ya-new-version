@@ -4,8 +4,6 @@ var mongoose = require('mongoose');
 var Users = require('../models/User.js');
 const passport = require('passport');
 
-// route get 
-
 router.get('/', function(req, res, next) {
     Users.find(function (err, client) {
       if (err) return next(err);
@@ -13,16 +11,14 @@ router.get('/', function(req, res, next) {
   });
 });  
 
-// route post
-
 router.post("/", (req, res, next) =>{
 
     passport.authenticate("local-signup", (err, user, info)=>{
       if (err) throw err;
-      if (!user) res.json({"Alert":"User Exists"});
+      if (!user) res.json({"Alert":"El usuario ingresado ya existe"});
       else{
       req.logIn(user, (err)=>{
-          res.json({"Alert":"New Registered User"});
+          res.json({"Alert":"Nuevo usuario registrado"});
           console.log(req.user);
       });
       }      

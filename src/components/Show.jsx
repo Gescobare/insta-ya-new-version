@@ -23,7 +23,7 @@ class Show extends Component {
     console.log(id);
     axios.delete('/api/order/'+id)
       .then((result) => {
-        this.props.history.push("/")
+        this.props.history.push("/read")
       });
   }
 
@@ -37,7 +37,7 @@ class Show extends Component {
             </h3>
           </div>
           <div class="panel-body">
-            <h4><Link to="/"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Lista de órdenes</Link></h4>
+            <h4><Link to="/read"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Lista de órdenes</Link></h4>
             <dl>
               <dt>Fecha - Hora:</dt>
               <dd>{this.state.order.date_order}</dd>
@@ -47,6 +47,8 @@ class Show extends Component {
               <dd>{this.state.order.long}</dd>
               <dt>Alto:</dt>
               <dd>{this.state.order.high}</dd>
+              <dt>Peso:</dt>
+              <dd>{this.state.order.weight}</dd>
               <dt>Estado:</dt>
               <dd>{this.state.order.status_order}</dd>
               <dt>Dirección de recogida:</dt>

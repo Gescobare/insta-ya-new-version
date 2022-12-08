@@ -42,7 +42,7 @@ class Signup extends Component {
       axios.post('/api/users', { name, email, password })
       .then((result) => {
         if(result.data.Alert === "New Registered User"){
-          this.props.history.push("/login")
+          this.props.history.push("/")
         }else{
           console.log("result = ",result)
           this.setState({
@@ -82,7 +82,7 @@ class Signup extends Component {
                         <div className="text-center">
                           <button type="submit" className="btn btn-primary btn-block enter-btn">Registrarse</button>
                         </div>
-                        <p className="sign-up text-center">¿Ya tienes cuenta?<Link to="/login" className=""> Iniciar sesión</Link></p>
+                        <p className="sign-up text-center">¿Ya tienes cuenta?<Link to="/" className=""> Iniciar sesión</Link></p>
                         {this.state.error === true &&
                         <div className="alert alert-danger" role="alert">
                             {this.state.errorMsg}

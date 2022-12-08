@@ -2,22 +2,18 @@ var express = require('express');
 var router = express.Router();
 const passport = require('passport');
 
-// route get
-
 router.get('/', function(req, res, next) {
-    res.send("hola")
+    res.send("Hola")
 });  
-
-// route post
 
 router.post("/", (req, res, next) =>{
 
     passport.authenticate("local-login", (err, user, info)=>{
         if (err) throw err;
-       if (!user) res.json({"Alert":"No user Exists"});
+       if (!user) res.json({"Alert":"El usuario no existe"});
         else{
         req.logIn(user, (err)=>{
-            res.json({"Alert":"Succefully Authenticated"});
+            res.json({"Alert":"Inicio de sesión exitoso"});
             console.log(req.user);
         });
         }      

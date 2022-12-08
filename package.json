@@ -27,9 +27,6 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "devDependencies": {
-    "bootstrap": "^3.3.7"
-  },
   "browserslist": {
     "production": [
       ">0.2%",

@@ -8,13 +8,12 @@ app.set('port', port);
 
 var server = http.createServer(app);
 
-//server.listen(port);
 server.listen(port, function(){
-  console.log("Server on Port", port);
+  console.log("Servidor activado en el puerto", port);
 });
 
-server.on('error', onError);
-server.on('listening', onListening);
+server.on('Error al cargar', onError);
+server.on('Escuchando', onListening);
 
 function normalizePort(val) {
   var port = parseInt(val, 10);
@@ -56,5 +55,5 @@ function onListening() {
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+  debug('Escuchando en ' + bind);
 }

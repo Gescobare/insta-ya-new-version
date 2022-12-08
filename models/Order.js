@@ -5,6 +5,7 @@ var OrderSchema = new mongoose.Schema({
   wide: Number,
   long: Number,
   high: Number,
+  weight: Number,
   status_order: String,
   pickup_address: String,
   pickup_city: String,
