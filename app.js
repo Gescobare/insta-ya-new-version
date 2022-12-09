@@ -8,7 +8,7 @@ const session = require('express-session');
 const flash = require('connect-flash');
 
 mongoose.connect('mongodb+srv://PabloMesa:RekWHOKJPfG43ivn@database.lajxw1s.mongodb.net/?retryWrites=true&w=majority')
-  .then((x) =>  console.log(`Conectado a la BD: "${x.connections[0].name}"`))
+  .then((x) => console.log(`Conectado a la BD: "${x.connections[0].name}"`))
   .catch((err) => console.error(err));
 
 var order = require('./routes/order');
@@ -35,31 +35,31 @@ app.use(passport.initialize());
 
 // flash Message
 
-app.use((req, res, next)=>{
+app.use((req, res, next) => {
   app.locals.signupMesagge = req.flash('signupMesagge')
   next()
 });
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({'extended':'false'}));
+app.use(bodyParser.urlencoded({ 'extended': 'false' }));
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.use('/api/order', order);
 app.use('/api/users', users);
 app.use('/api/sessions', sessions)
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   res.status(err.status || 500);
-  res.send('Error al cargar la página');
+  res.send('<h2>LO SENTIMOS!</h2><h3>No tiene permisos suficientes.</h3><a href="/">Inicio de sesión</a>');
 });
 
 module.exports = app;
